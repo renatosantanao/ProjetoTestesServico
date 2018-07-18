@@ -1,0 +1,171 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<con:soapui-project id="6cdfc304-e622-49bd-b570-2d5bdf8de7c0" activeEnvironment="Default" name="apreendoTestesServico" resourceRoot="" soapui-version="5.4.0" xmlns:con="http://eviware.com/soapui/config"><con:settings/><con:interface xsi:type="con:WsdlInterface" id="b7595d9c-96f2-47be-8764-091f13aba73f" wsaVersion="NONE" name="CEPServiceBinding" type="wsdl" bindingName="{urn:CEPService}CEPServiceBinding" soapVersion="1_1" anonymous="optional" definition="http://www.byjg.com.br/site/webservice.php/ws/cep?WSDL" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"><con:settings/><con:definitionCache type="TEXT" rootPart="http://www.byjg.com.br/site/webservice.php/ws/cep?WSDL"><con:part><con:url>http://www.byjg.com.br/site/webservice.php/ws/cep?WSDL</con:url><con:content><![CDATA[<definitions name="CEPService" targetNamespace="urn:CEPService" xmlns="http://schemas.xmlsoap.org/wsdl/" xmlns:typens="urn:CEPService" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/" xmlns:soapenc="http://schemas.xmlsoap.org/soap/encoding/" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">
+  <types>
+    <xsd:schema targetNamespace="urn:CEPService" xmlns="http://www.w3.org/2001/XMLSchema">
+      <xsd:complexType name="ArrayOfstring">
+        <xsd:complexContent>
+          <xsd:restriction base="soapenc:Array">
+            <xsd:attribute ref="soapenc:arrayType" wsdl:arrayType="xsd:string[]" xmlns:wsdl1="http://schemas.xmlsoap.org/wsdl/"/>
+          </xsd:restriction>
+        </xsd:complexContent>
+      </xsd:complexType>
+    </xsd:schema>
+  </types>
+  <message name="obterVersao"/>
+  <message name="obterVersaoResponse">
+    <part name="obterVersaoResponse" type="xsd:string"/>
+  </message>
+  <message name="obterLogradouro">
+    <part name="cep" type="xsd:string"/>
+  </message>
+  <message name="obterLogradouroResponse">
+    <part name="obterLogradouroResponse" type="xsd:string"/>
+  </message>
+  <message name="obterLogradouroAuth">
+    <part name="cep" type="xsd:string"/>
+    <part name="usuario" type="xsd:string"/>
+    <part name="senha" type="xsd:string"/>
+  </message>
+  <message name="obterLogradouroAuthResponse">
+    <part name="obterLogradouroAuthResponse" type="xsd:string"/>
+  </message>
+  <message name="obterCEP">
+    <part name="logradouro" type="xsd:string"/>
+    <part name="localidade" type="xsd:string"/>
+    <part name="UF" type="xsd:string"/>
+  </message>
+  <message name="obterCEPResponse">
+    <part name="obterCEPResponse" type="typens:ArrayOfstring"/>
+  </message>
+  <message name="obterCEPAuth">
+    <part name="logradouro" type="xsd:string"/>
+    <part name="localidade" type="xsd:string"/>
+    <part name="UF" type="xsd:string"/>
+    <part name="usuario" type="xsd:string"/>
+    <part name="senha" type="xsd:string"/>
+  </message>
+  <message name="obterCEPAuthResponse">
+    <part name="obterCEPAuthResponse" type="typens:ArrayOfstring"/>
+  </message>
+  <portType name="CEPServicePort">
+    <operation name="obterVersao">
+      <documentation>Retorna a versao do WebService</documentation>
+      <input message="typens:obterVersao"/>
+      <output message="typens:obterVersaoResponse"/>
+    </operation>
+    <operation name="obterLogradouro">
+      <documentation>Retorna o nome do logradouro à partir do CEP fornecido. Esse método será desativado em 30 de Outubro de 2008.</documentation>
+      <input message="typens:obterLogradouro"/>
+      <output message="typens:obterLogradouroResponse"/>
+    </operation>
+    <operation name="obterLogradouroAuth">
+      <documentation>Retorna o nome do logradouro à partir do CEP fornecido. Esse método requer autenticação do usuário.</documentation>
+      <input message="typens:obterLogradouroAuth"/>
+      <output message="typens:obterLogradouroAuthResponse"/>
+    </operation>
+    <operation name="obterCEP">
+      <documentation>Retorna o CEP à partir do nome do logradouro, localidade e unidade federativa. Atenção: Somente serão retornadas as 5 primeiras linhas. Esse método será desativado em 30 de Outubro de 2008.</documentation>
+      <input message="typens:obterCEP"/>
+      <output message="typens:obterCEPResponse"/>
+    </operation>
+    <operation name="obterCEPAuth">
+      <documentation>Retorna o CEP à partir do nome do logradouro, localidade e unidade federativa. Esse método requer autenticação de usuário. Se autenticado, retorna as 20 primeiras linhas encontradas.</documentation>
+      <input message="typens:obterCEPAuth"/>
+      <output message="typens:obterCEPAuthResponse"/>
+    </operation>
+  </portType>
+  <binding name="CEPServiceBinding" type="typens:CEPServicePort">
+    <soap:binding style="rpc" transport="http://schemas.xmlsoap.org/soap/http"/>
+    <operation name="obterVersao">
+      <soap:operation soapAction="urn:CEPServiceAction"/>
+      <input>
+        <soap:body use="encoded" namespace="urn:http://www.byjg.com.br" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+      </input>
+      <output>
+        <soap:body use="encoded" namespace="urn:http://www.byjg.com.br" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+      </output>
+    </operation>
+    <operation name="obterLogradouro">
+      <soap:operation soapAction="urn:CEPServiceAction"/>
+      <input>
+        <soap:body use="encoded" namespace="urn:http://www.byjg.com.br" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+      </input>
+      <output>
+        <soap:body use="encoded" namespace="urn:http://www.byjg.com.br" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+      </output>
+    </operation>
+    <operation name="obterLogradouroAuth">
+      <soap:operation soapAction="urn:CEPServiceAction"/>
+      <input>
+        <soap:body use="encoded" namespace="urn:http://www.byjg.com.br" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+      </input>
+      <output>
+        <soap:body use="encoded" namespace="urn:http://www.byjg.com.br" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+      </output>
+    </operation>
+    <operation name="obterCEP">
+      <soap:operation soapAction="urn:CEPServiceAction"/>
+      <input>
+        <soap:body use="encoded" namespace="urn:http://www.byjg.com.br" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+      </input>
+      <output>
+        <soap:body use="encoded" namespace="urn:http://www.byjg.com.br" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+      </output>
+    </operation>
+    <operation name="obterCEPAuth">
+      <soap:operation soapAction="urn:CEPServiceAction"/>
+      <input>
+        <soap:body use="encoded" namespace="urn:http://www.byjg.com.br" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+      </input>
+      <output>
+        <soap:body use="encoded" namespace="urn:http://www.byjg.com.br" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+      </output>
+    </operation>
+  </binding>
+  <service name="CEPService">
+    <port name="CEPServicePort" binding="typens:CEPServiceBinding">
+      <soap:address location="http://www.byjg.com.br/site/webservice.php/ws/cep"/>
+    </port>
+  </service>
+</definitions>]]></con:content><con:type>http://schemas.xmlsoap.org/wsdl/</con:type></con:part></con:definitionCache><con:endpoints><con:endpoint>http://www.byjg.com.br/site/webservice.php/ws/cep</con:endpoint></con:endpoints><con:operation id="9aeb2c17-c3e4-4a7c-9f3a-85182b18c79c" isOneWay="false" action="urn:CEPServiceAction" name="obterCEP" bindingOperationName="obterCEP" type="Request-Response" inputName="" receivesAttachments="false" sendsAttachments="false" anonymous="optional"><con:settings/><con:call id="75c9cc2c-27a9-4504-9d62-7759e876f496" name="Request 1"><con:settings/><con:encoding>UTF-8</con:encoding><con:endpoint>http://www.byjg.com.br/site/webservice.php/ws/cep</con:endpoint><con:request><![CDATA[<soapenv:Envelope xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:soapenv="http://schemas.xmlsoap.org/soap/envelope/" xmlns:byjg="urn:http://www.byjg.com.br">
+   <soapenv:Header/>
+   <soapenv:Body>
+      <byjg:obterCEP soapenv:encodingStyle="http://schemas.xmlsoap.org/soap/encoding/">
+         <logradouro xsi:type="xsd:string">?</logradouro>
+         <localidade xsi:type="xsd:string">?</localidade>
+         <UF xsi:type="xsd:string">?</UF>
+      </byjg:obterCEP>
+   </soapenv:Body>
+</soapenv:Envelope>]]></con:request><con:credentials><con:authType>No Authorization</con:authType></con:credentials><con:jmsConfig JMSDeliveryMode="PERSISTENT"/><con:jmsPropertyConfig/><con:wsaConfig mustUnderstand="NONE" version="200508" action="urn:CEPServiceAction"/><con:wsrmConfig version="1.2"/></con:call></con:operation><con:operation id="41d5055a-cb25-4c2a-bd05-0f55c5d79a23" isOneWay="false" action="urn:CEPServiceAction" name="obterCEPAuth" bindingOperationName="obterCEPAuth" type="Request-Response" inputName="" receivesAttachments="false" sendsAttachments="false" anonymous="optional"><con:settings/><con:call id="be7b0ad0-416a-4e6e-a87a-3e04e5988b1d" name="Request 1"><con:settings><con:setting id="com.eviware.soapui.impl.wsdl.WsdlRequest@request-headers">&lt;xml-fragment/></con:setting></con:settings><con:encoding>UTF-8</con:encoding><con:endpoint>http://www.byjg.com.br/site/webservice.php/ws/cep</con:endpoint><con:request><![CDATA[<soapenv:Envelope xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:soapenv="http://schemas.xmlsoap.org/soap/envelope/" xmlns:byjg="urn:http://www.byjg.com.br">
+   <soapenv:Header/>
+   <soapenv:Body>
+      <byjg:obterCEPAuth soapenv:encodingStyle="http://schemas.xmlsoap.org/soap/encoding/">
+         <logradouro xsi:type="xsd:string">?</logradouro>
+         <localidade xsi:type="xsd:string">?</localidade>
+         <UF xsi:type="xsd:string">?</UF>
+         <usuario xsi:type="xsd:string">renatosaoli</usuario>
+         <senha xsi:type="xsd:string">santana07</senha>
+      </byjg:obterCEPAuth>
+   </soapenv:Body>
+</soapenv:Envelope>]]></con:request><con:credentials><con:authType>No Authorization</con:authType></con:credentials><con:jmsConfig JMSDeliveryMode="PERSISTENT"/><con:jmsPropertyConfig/><con:wsaConfig mustUnderstand="NONE" version="200508" action="urn:CEPServiceAction"/><con:wsrmConfig version="1.2"/></con:call></con:operation><con:operation id="8e399060-7dbb-40b0-a7e3-6c343cb8ce97" isOneWay="false" action="urn:CEPServiceAction" name="obterLogradouro" bindingOperationName="obterLogradouro" type="Request-Response" inputName="" receivesAttachments="false" sendsAttachments="false" anonymous="optional"><con:settings/><con:call id="80dc0e8d-a0c4-45d9-aaa7-f330eace4aa8" name="Request 1" outgoingWss="" incomingWss=""><con:settings><con:setting id="com.eviware.soapui.impl.wsdl.WsdlRequest@request-headers">&lt;xml-fragment/></con:setting></con:settings><con:encoding>UTF-8</con:encoding><con:endpoint>http://www.byjg.com.br/site/webservice.php/ws/cep</con:endpoint><con:request><![CDATA[<soapenv:Envelope xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:soapenv="http://schemas.xmlsoap.org/soap/envelope/" xmlns:byjg="urn:http://www.byjg.com.br">
+   <soapenv:Header/>
+   <soapenv:Body>
+      <byjg:obterLogradouro soapenv:encodingStyle="http://schemas.xmlsoap.org/soap/encoding/">
+         <cep xsi:type="xsd:string">31140000</cep>
+      </byjg:obterLogradouro>
+   </soapenv:Body>
+</soapenv:Envelope>]]></con:request><con:credentials><con:username>renatosaoli</con:username><con:password>santana07</con:password><con:selectedAuthProfile>Basic</con:selectedAuthProfile><con:addedBasicAuthenticationTypes>Basic</con:addedBasicAuthenticationTypes><con:preemptive>false</con:preemptive><con:authType>Global HTTP Settings</con:authType></con:credentials><con:jmsConfig JMSDeliveryMode="PERSISTENT"/><con:jmsPropertyConfig/><con:wsaConfig mustUnderstand="NONE" version="200508" action="urn:CEPServiceAction"/><con:wsrmConfig version="1.2"/></con:call></con:operation><con:operation id="8164ac7f-f9f7-457e-9bd2-140b8f105972" isOneWay="false" action="urn:CEPServiceAction" name="obterLogradouroAuth" bindingOperationName="obterLogradouroAuth" type="Request-Response" inputName="" receivesAttachments="false" sendsAttachments="false" anonymous="optional"><con:settings/><con:call id="fd00385c-b182-41af-8c03-b6899dbba43e" name="Request 1"><con:settings><con:setting id="com.eviware.soapui.impl.wsdl.WsdlRequest@request-headers">&lt;xml-fragment/></con:setting></con:settings><con:encoding>UTF-8</con:encoding><con:endpoint>http://www.byjg.com.br/site/webservice.php/ws/cep</con:endpoint><con:request><![CDATA[<soapenv:Envelope xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:soapenv="http://schemas.xmlsoap.org/soap/envelope/" xmlns:byjg="urn:http://www.byjg.com.br">
+   <soapenv:Header/>
+   <soapenv:Body>
+      <byjg:obterLogradouroAuth soapenv:encodingStyle="http://schemas.xmlsoap.org/soap/encoding/">
+         <cep xsi:type="xsd:string">31140000</cep>
+         <usuario xsi:type="xsd:string">renatosaoli</usuario>
+         <senha xsi:type="xsd:string">santana07</senha>
+      </byjg:obterLogradouroAuth>
+   </soapenv:Body>
+</soapenv:Envelope>]]></con:request><con:credentials><con:authType>No Authorization</con:authType></con:credentials><con:jmsConfig JMSDeliveryMode="PERSISTENT"/><con:jmsPropertyConfig/><con:wsaConfig mustUnderstand="NONE" version="200508" action="urn:CEPServiceAction"/><con:wsrmConfig version="1.2"/></con:call></con:operation><con:operation id="13c0438b-4c05-4d34-8895-0b67ffc22eaf" isOneWay="false" action="urn:CEPServiceAction" name="obterVersao" bindingOperationName="obterVersao" type="Request-Response" inputName="" receivesAttachments="false" sendsAttachments="false" anonymous="optional"><con:settings/><con:call id="72b41311-d185-42b7-9571-d90c34917a02" name="Request 1"><con:settings><con:setting id="com.eviware.soapui.impl.wsdl.WsdlRequest@request-headers">&lt;xml-fragment/></con:setting></con:settings><con:encoding>UTF-8</con:encoding><con:endpoint>http://www.byjg.com.br/site/webservice.php/ws/cep</con:endpoint><con:request><![CDATA[<soapenv:Envelope xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:soapenv="http://schemas.xmlsoap.org/soap/envelope/" xmlns:byjg="urn:http://www.byjg.com.br">
+   <soapenv:Header/>
+   <soapenv:Body>
+      <byjg:obterVersao soapenv:encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+   </soapenv:Body>
+</soapenv:Envelope>]]></con:request><con:credentials><con:authType>No Authorization</con:authType></con:credentials><con:jmsConfig JMSDeliveryMode="PERSISTENT"/><con:jmsPropertyConfig/><con:wsaConfig mustUnderstand="NONE" version="200508" action="urn:CEPServiceAction"/><con:wsrmConfig version="1.2"/></con:call></con:operation></con:interface><con:properties/><con:wssContainer/><con:oAuth2ProfileContainer/><con:oAuth1ProfileContainer/><con:sensitiveInformation/></con:soapui-project>
