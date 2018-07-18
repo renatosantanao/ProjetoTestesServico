@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<con:soapui-project id="6cdfc304-e622-49bd-b570-2d5bdf8de7c0" activeEnvironment="Default" name="apreendoTestesServico" resourceRoot="" soapui-version="5.4.0" xmlns:con="http://eviware.com/soapui/config"><con:settings/><con:interface xsi:type="con:WsdlInterface" id="b7595d9c-96f2-47be-8764-091f13aba73f" wsaVersion="NONE" name="CEPServiceBinding" type="wsdl" bindingName="{urn:CEPService}CEPServiceBinding" soapVersion="1_1" anonymous="optional" definition="http://www.byjg.com.br/site/webservice.php/ws/cep?WSDL" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"><con:settings/><con:definitionCache type="TEXT" rootPart="http://www.byjg.com.br/site/webservice.php/ws/cep?WSDL"><con:part><con:url>http://www.byjg.com.br/site/webservice.php/ws/cep?WSDL</con:url><con:content><![CDATA[<definitions name="CEPService" targetNamespace="urn:CEPService" xmlns="http://schemas.xmlsoap.org/wsdl/" xmlns:typens="urn:CEPService" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/" xmlns:soapenc="http://schemas.xmlsoap.org/soap/encoding/" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">
+<con:soapui-project id="6cdfc304-e622-49bd-b570-2d5bdf8de7c0" activeEnvironment="Default" name="apreendoTestesServico" resourceRoot="" soapui-version="5.4.0" abortOnError="false" runType="SEQUENTIAL" xmlns:con="http://eviware.com/soapui/config"><con:settings/><con:interface xsi:type="con:WsdlInterface" id="b7595d9c-96f2-47be-8764-091f13aba73f" wsaVersion="NONE" name="CEPServiceBinding" type="wsdl" bindingName="{urn:CEPService}CEPServiceBinding" soapVersion="1_1" anonymous="optional" definition="http://www.byjg.com.br/site/webservice.php/ws/cep?WSDL" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"><con:settings/><con:definitionCache type="TEXT" rootPart="http://www.byjg.com.br/site/webservice.php/ws/cep?WSDL"><con:part><con:url>http://www.byjg.com.br/site/webservice.php/ws/cep?WSDL</con:url><con:content><![CDATA[<definitions name="CEPService" targetNamespace="urn:CEPService" xmlns="http://schemas.xmlsoap.org/wsdl/" xmlns:typens="urn:CEPService" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/" xmlns:soapenc="http://schemas.xmlsoap.org/soap/encoding/" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">
   <types>
     <xsd:schema targetNamespace="urn:CEPService" xmlns="http://www.w3.org/2001/XMLSchema">
       <xsd:complexType name="ArrayOfstring">
@@ -140,9 +140,9 @@
    <soapenv:Header/>
    <soapenv:Body>
       <byjg:obterCEPAuth soapenv:encodingStyle="http://schemas.xmlsoap.org/soap/encoding/">
-         <logradouro xsi:type="xsd:string">?</logradouro>
-         <localidade xsi:type="xsd:string">?</localidade>
-         <UF xsi:type="xsd:string">?</UF>
+         <logradouro xsi:type="xsd:string">Rua Silveira - de 300/301 ao fim</logradouro>
+         <localidade xsi:type="xsd:string">Belo Horizonte</localidade>
+         <UF xsi:type="xsd:string">MG</UF>
          <usuario xsi:type="xsd:string">renatosaoli</usuario>
          <senha xsi:type="xsd:string">santana07</senha>
       </byjg:obterCEPAuth>
